@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[ ]:
-
-
 import numpy as np
 import torch
 import torch.nn as nn

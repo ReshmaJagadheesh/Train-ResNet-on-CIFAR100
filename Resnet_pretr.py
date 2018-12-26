@@ -16,7 +16,6 @@ import torch.utils.model_zoo as model_zoo
 import torchvision.models as models
 
 
-# In[ ]:
 
 
 model = models.resnet18(pretrained=True)
@@ -28,8 +27,6 @@ num_ftrs = model.fc.in_features
 model.fc = nn.Linear(num_ftrs, 100)
 
 
-# In[ ]:
-
 
 transform = transforms.Compose([transforms.RandomCrop(32, padding=4),transforms.RandomHorizontalFlip(),transforms.ToTensor()])
 trainset = torchvision.datasets.CIFAR100(root='./data', train=True,download=True, transform=transform)
@@ -39,8 +36,6 @@ t = transforms.Compose([transforms.ToTensor()])
 testset = torchvision.datasets.CIFAR100(root='./data', train=False,download=True, transform=t)
 testloader = torch.utils.data.DataLoader(testset, batch_size=128,shuffle=False, num_workers=4)
 
-
-# In[ ]:
 
 
 model.cuda()

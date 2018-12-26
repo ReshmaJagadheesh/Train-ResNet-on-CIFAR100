@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
 import torch
 import torch.nn as nn
@@ -14,8 +8,6 @@ import torchvision
 import torchvision.transforms as transforms
 
 
-# In[2]:
-
 
 transform = transforms.Compose([transforms.RandomCrop(32, padding=4),transforms.RandomHorizontalFlip(),transforms.ToTensor()])
 trainset = torchvision.datasets.CIFAR100(root='./data', train=True,download=True, transform=transform)
@@ -25,8 +17,6 @@ t = transforms.Compose([transforms.ToTensor()])
 testset = torchvision.datasets.CIFAR100(root='./data', train=False,download=True, transform=t)
 testloader = torch.utils.data.DataLoader(testset, batch_size=128,shuffle=False, num_workers=4)
 
-
-# In[16]:
 
 
 class ResNet(nn.Module):
@@ -88,9 +78,6 @@ class BasicBlock(nn.Module):
         out += x
         return out
             
-
-
-# In[ ]:
 
 
 model = ResNet(BasicBlock)
